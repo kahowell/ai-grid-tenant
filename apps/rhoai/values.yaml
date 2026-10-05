@@ -8,7 +8,11 @@ components:
     gateway:
       spec:
         listeners:
-          - allowedRoutes:
+          - name: https
+            port: 443
+            # hostname: <HOSTNAME> # Uncomment this line to use a specific hostname.
+            protocol: HTTPS
+            allowedRoutes:
               namespaces:
                 # The following is an example of how to restrict the namespaces to the interested ones.
                 from: Selector
@@ -24,7 +28,11 @@ components:
       gateway:
         spec:
           listeners:
-            - allowedRoutes:
+            - name: https
+              port: 443
+              # hostname: <HOSTNAME> # Uncomment this line to use a specific hostname.
+              protocol: HTTPS
+              allowedRoutes:
                 namespaces:
                   # The following is an example of how to restrict the namespaces to the interested ones.
                   from: Selector
