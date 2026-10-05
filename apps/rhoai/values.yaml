@@ -5,7 +5,8 @@ operator:
   # values.yaml
 components:
   dashboard:
-    managementState: Managed
+    dsc:
+      managementState: Managed
   kserve:
     gateway:
       spec:
