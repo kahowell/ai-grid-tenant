@@ -7,29 +7,14 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-    - matrix:
-        generators:
-          - git:
-              repoURL: https://github.com/kahowell/ai-grid-tenant.git
-              revision: HEAD
-              directories:
-                - path: apps/*
-          - clusters: {}
+    - git:
+        repoURL: https://github.com/kahowell/ai-grid-tenant.git
+        revision: HEAD
+        files:
+          - path: apps/*/application.yaml
   template:
     metadata:
-      name: '{{index .path.segments 1}}'
-    spec:
-      project: default
-      source:
-        repoURL: https://github.com/kahowell/ai-grid-tenant.git
-        targetRevision: HEAD
-        path: '{{.path.path}}'
-      destination:
-        server: '{{.server}}'
-        namespace: '{{index .path.segments 1}}'
-      syncPolicy:
-        syncOptions:
-          - CreateNamespace=true
-        automated:
-          prune: true
-          selfHeal: true
+      name: '{{.metadata.name}}'
+      namespace: '{{.metadata.namespace}}'
+    templatePatch: |
+      spec: {{ .spec | toJson }}
