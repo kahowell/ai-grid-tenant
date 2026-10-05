@@ -16,5 +16,10 @@ spec:
     metadata:
       name: '{{.metadata.name}}'
       namespace: '{{.metadata.namespace}}'
-    templatePatch: |
-      spec: {{ .spec | toJson }}
+    spec:
+      project: '{{.spec.project}}'
+      destination:
+        server: '{{.spec.destination.server}}'
+        namespace: '{{.spec.destination.namespace}}'
+  templatePatch: |
+    spec: {{ .spec | toJson }}
