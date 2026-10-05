@@ -1,4 +1,37 @@
 skipCrdCheck: true
-profile: rhaii
+profile: maas
 operator:
   type: rhoai
+  # values.yaml
+components:
+  kserve:
+    gateway:
+      spec:
+        listeners:
+          - allowedRoutes:
+              namespaces:
+                # The following is an example of how to restrict the namespaces to the interested ones.
+                from: Selector
+                selector:
+                  matchExpressions:
+                  - key: kubernetes.io/metadata.name
+                    operator: In
+                    values:
+                    - openshift-ingress
+                    # TODO - <LLM_INFERENCE_SERVICE_NAMESPACE>
+  aigateway:
+    modelsAsAService:
+      gateway:
+        spec:
+          listeners:
+            - allowedRoutes:
+                namespaces:
+                  # The following is an example of how to restrict the namespaces to the interested ones.
+                  from: Selector
+                  selector:
+                    matchExpressions:
+                    - key: kubernetes.io/metadata.name
+                      operator: In
+                      values:
+                      - openshift-ingress
+                      # TODO - <LLM_INFERENCE_SERVICE_NAMESPACE>
