@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: guestbook
-  namespace: argocd
+  name: apps
+  namespace: openshift-gitops
 spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
@@ -19,11 +19,11 @@ spec:
     metadata:
       name: '{{index .path.segments 1}}'
     spec:
-      project: my-project
+      project: default
       source:
         repoURL: https://github.com/kahowell/ai-grid-tenant.git
         targetRevision: HEAD
-        path: {{.path.path}}
+        path: '{{.path.path}}'
       destination:
         server: '{{.server}}'
         namespace: '{{index .path.segments 1}}'
