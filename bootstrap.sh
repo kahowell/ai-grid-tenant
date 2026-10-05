@@ -6,4 +6,5 @@ oc apply -f bootstrap/namespace.yaml
 oc apply -f bootstrap/gitops-operator-group.yaml
 oc apply -f bootstrap/openshift-gitops-sub.yaml
 oc apply -f bootstrap/applicationset.yaml
+oc apply -f bootstrap/openshift-gitops-admin.yaml
 oc patch consoles.operator.openshift.io cluster --patch '{ "spec": { "plugins": ["gitops-plugin"] } }' --type=merge
