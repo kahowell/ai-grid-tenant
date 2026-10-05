@@ -1,2 +1,4 @@
 skipCrdCheck: true
 profile: rhaii
+operator:
+  type: rhoai
