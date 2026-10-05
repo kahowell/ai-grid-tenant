@@ -4,6 +4,8 @@ operator:
   type: rhoai
   # values.yaml
 components:
+  dashboard:
+    managementState: Managed
   kserve:
     gateway:
       spec:
