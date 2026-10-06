@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-admins
+  namespace: openshift-gitops
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/kahowell/ai-grid-tenant.git
+      targetRevision: HEAD
+      path: cluster-config/chart
+      helm:
+        releaseName: cluster-admins
+        valueFiles:
+          - $values/cluster-config/values.yaml
+    - repoURL: https://github.com/kahowell/ai-grid-tenant.git
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: openshift-gitops
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

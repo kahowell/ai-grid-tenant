@@ -12,6 +12,7 @@ spec:
         revision: HEAD
         files:
           - path: apps/*/application.yaml
+          - path: cluster-config/application.yaml
   template:
     metadata:
       name: '{{.metadata.name}}'

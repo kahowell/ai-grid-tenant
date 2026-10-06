@@ -1,0 +1,7 @@
+apiVersion: v2
+name: cluster-admins
+description: >
+  Grants cluster-admin to a Git-managed list of users through one
+  ClusterRoleBinding per user.
+type: application
+version: 0.1.0
