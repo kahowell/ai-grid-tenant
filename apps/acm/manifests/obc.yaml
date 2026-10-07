@@ -7,3 +7,4 @@ metadata:
     argocd.argoproj.io/sync-wave: "3"
 spec:
   generateBucketName: acm-observability-thanos
+  storageClassName: openshift-storage.noobaa.io
