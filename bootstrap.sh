@@ -8,3 +8,7 @@ oc apply -f bootstrap/openshift-gitops-sub.yaml
 oc apply -f bootstrap/applicationset.yaml
 oc apply -f bootstrap/openshift-gitops-admin.yaml
 oc patch consoles.operator.openshift.io cluster --patch '{ "spec": { "plugins": ["gitops-plugin"] } }' --type=merge
+
+# RHOAI nightly prerequisites (quay.io/rhoai mirror + pull secret; cannot be
+# GitOps-managed). Requires RHOAI_QUAY_PULL_SECRET in the environment.
+bash bootstrap/rhoai-nightly.sh

@@ -16,6 +16,10 @@ spec:
     - repoURL: https://github.com/kahowell/ai-grid-tenant.git
       targetRevision: HEAD
       ref: values
+    # Cluster-scoped manifests alongside the chart (nightly CatalogSource)
+    - repoURL: https://github.com/kahowell/ai-grid-tenant.git
+      targetRevision: HEAD
+      path: apps/rhoai/manifests
   destination:
     server: https://kubernetes.default.svc
     namespace: odh-gitops

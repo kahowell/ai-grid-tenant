@@ -2,6 +2,11 @@ skipCrdCheck: true
 profile: maas
 operator:
   type: rhoai
+  rhoai:
+    olm:
+      # Nightly catalog (see manifests/rhoai-catalog-dev.yaml); requires the
+      # quay.io/rhoai mirror + pull secret provisioned by bootstrap.sh.
+      source: rhoai-catalog-dev
 # Workaround for https://redhat.atlassian.net/browse/RHOAIENG-99507:
 # RHACM's multicluster-observability-addon also installs COO with its own
 # OperatorGroup (named after the namespace), which conflicts with the chart's
