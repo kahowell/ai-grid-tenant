@@ -18,8 +18,9 @@ spec:
       retentionResolution5m: 7d
       retentionResolution1h: 14d
   capabilities:
-    metrics:
-      default:
-        enabled: true
-      ui:
-        enabled: true
+      platform:
+        metrics:
+          default:
+            enabled: true
+          ui:
+            enabled: true
