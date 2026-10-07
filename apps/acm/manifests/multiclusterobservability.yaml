@@ -1,0 +1,19 @@
+apiVersion: observability.open-cluster-management.io/v1beta2
+kind: MultiClusterObservability
+metadata:
+  name: observability
+  namespace: open-cluster-management-observability
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+spec:
+  instanceSize: minimal
+  observabilityAddonSpec: {}
+  storageConfig:
+    metricObjectStorage:
+      name: thanos-object-storage
+      key: thanos.yaml
+  advanced:
+    retentionConfig:
+      retentionResolutionRaw: 24h
+      retentionResolution5m: 7d
+      retentionResolution1h: 14d
