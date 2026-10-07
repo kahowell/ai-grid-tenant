@@ -17,3 +17,9 @@ spec:
       retentionResolutionRaw: 24h
       retentionResolution5m: 7d
       retentionResolution1h: 14d
+  capabilities:
+    metrics:
+      default:
+        enabled: true
+      ui:
+        enabled: true
