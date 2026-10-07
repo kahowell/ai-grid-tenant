@@ -27,8 +27,8 @@ spec:
               OBC_NAME="acm-observability-thanos"
               SECRET_NAME="thanos-object-storage"
 
-              echo "Waiting for ObjectBucketClaim ${OBC_NAME} to become Bound (timeout 900s)"
-              oc wait --for=condition=Bound "objectbucketclaim/${OBC_NAME}" -n "${NAMESPACE}" --timeout=900s
+              echo "Waiting for ObjectBucketClaim ${OBC_NAME} to reach phase Bound (timeout 900s)"
+              oc wait --for=jsonpath='{.status.phase}'=Bound "objectbucketclaim/${OBC_NAME}" -n "${NAMESPACE}" --timeout=900s
 
               # Read a key from the OBC-generated Secret; fails loudly if the
               # Secret or the key is missing. Never echoes the value.
