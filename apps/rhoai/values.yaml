@@ -2,7 +2,10 @@ skipCrdCheck: true
 profile: maas
 operator:
   type: rhoai
-  # values.yaml
+services:
+  monitoring:
+    dsci:
+      managementState: Managed
 components:
   dashboard:
     dsc:
