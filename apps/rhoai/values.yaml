@@ -14,6 +14,13 @@ services:
   monitoring:
     dsci:
       managementState: Managed
+      # Minimal dev config: metrics need no extra fields; traces require a
+      # storage backend (pv = ephemeral-ish local dev storage, no S3 needed).
+      metrics: {}
+      traces:
+        storage:
+          backend: pv
+          size: 10Gi
 components:
   dashboard:
     dsc:
