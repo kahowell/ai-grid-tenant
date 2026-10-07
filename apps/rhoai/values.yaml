@@ -2,6 +2,14 @@ skipCrdCheck: true
 profile: maas
 operator:
   type: rhoai
+# Workaround for https://redhat.atlassian.net/browse/RHOAIENG-99507:
+# RHACM's multicluster-observability-addon also installs COO with its own
+# OperatorGroup (named after the namespace), which conflicts with the chart's
+# (named after the package) and blocks CSV installs/upgrades. Let RHACM own
+# COO on this cluster until the OG naming is standardized in odh-gitops.
+dependencies:
+  clusterObservability:
+    enabled: false
 services:
   monitoring:
     dsci:
