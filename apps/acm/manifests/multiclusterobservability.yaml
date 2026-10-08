@@ -17,6 +17,9 @@ spec:
       retentionResolutionRaw: 24h
       retentionResolution5m: 7d
       retentionResolution1h: 14d
+    # Default sts size was 6, making node drain challenging
+    receive:
+      replicas: 2
   capabilities:
     platform:
       metrics:
