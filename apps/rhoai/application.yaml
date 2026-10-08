@@ -16,10 +16,14 @@ spec:
     - repoURL: https://github.com/kahowell/ai-grid-tenant.git
       targetRevision: HEAD
       ref: values
-    # Cluster-scoped manifests alongside the chart (nightly CatalogSource)
+    # Nightly CatalogSource (image ref managed in apps/rhoai/nightly.yaml)
     - repoURL: https://github.com/kahowell/ai-grid-tenant.git
       targetRevision: HEAD
-      path: apps/rhoai/manifests
+      path: apps/rhoai/catalog
+      helm:
+        releaseName: rhoai-nightly-catalog
+        valueFiles:
+          - $values/apps/rhoai/nightly.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: odh-gitops

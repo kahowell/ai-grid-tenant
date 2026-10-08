@@ -1,0 +1,7 @@
+apiVersion: v2
+name: rhoai-nightly-catalog
+description: >
+  CatalogSource for the RHOAI nightly FBC fragment. The image reference is
+  managed in apps/rhoai/nightly.yaml (the values file for this chart).
+type: application
+version: 0.1.0

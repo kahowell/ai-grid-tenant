@@ -4,8 +4,8 @@ operator:
   type: rhoai
   rhoai:
     olm:
-      # Nightly catalog (see manifests/rhoai-catalog-dev.yaml); requires the
-      # quay.io/rhoai mirror + pull secret provisioned by bootstrap.sh.
+      # Nightly catalog (image ref managed in apps/rhoai/nightly.yaml);
+      # requires the quay.io/rhoai mirror + pull secret from bootstrap.sh.
       source: rhoai-catalog-dev
 # Workaround for https://redhat.atlassian.net/browse/RHOAIENG-99507:
 # RHACM's multicluster-observability-addon also installs COO with its own
