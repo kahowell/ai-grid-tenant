@@ -27,3 +27,7 @@ spec:
           enabled: true
         ui:
           enabled: true
+    userWorkloads:
+      metrics:
+        default:
+          enabled: true
