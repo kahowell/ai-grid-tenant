@@ -36,6 +36,8 @@ components:
   dashboard:
     dsc:
       managementState: Managed
+      maasConsumerPortal:
+        managementState: Managed
   kserve:
     gateway:
       spec:
