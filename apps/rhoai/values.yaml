@@ -7,6 +7,7 @@ operator:
       # Nightly catalog (image ref managed in apps/rhoai/nightly.yaml);
       # requires the quay.io/rhoai mirror + pull secret from bootstrap.sh.
       source: rhoai-catalog-dev
+      channel: stable-3.6
 # Workaround for https://redhat.atlassian.net/browse/RHOAIENG-99507:
 # RHACM's multicluster-observability-addon also installs COO with its own
 # OperatorGroup (named after the namespace), which conflicts with the chart's
