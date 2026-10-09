@@ -7,7 +7,8 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/opendatahub-io/odh-gitops.git
-      targetRevision: main
+      # TODO: revert to main once the maasConsumerPortal change merges upstream
+      targetRevision: ai-grid
       path: charts/rhai-on-openshift-chart
       helm:
         releaseName: rhai-on-openshift
